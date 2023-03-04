@@ -1,3 +1,4 @@
+
 .nav-bar {
     background: #181818;
     width: 60px;
@@ -22,7 +23,7 @@
             }
         }
     }
-
+    
     nav {
         display: block;
         text-align: center;
@@ -93,6 +94,30 @@
         a.active {
             svg {
                 color: #ffd700;
+            }
+        }
+    }
+
+    ul{
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        display: block;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+        margin: 0;
+
+        li{
+            a{
+                padding: 7px 0;
+                display: block;
+                font-size: 15px;
+                line-height: 16px;
+                
+                &:hover svg{
+                    color: #ffd700;
+                }
             }
         }
     }
