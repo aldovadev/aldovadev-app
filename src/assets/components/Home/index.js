@@ -1,7 +1,9 @@
 import LogoTitle from '../../images/logo-s.png'
+import Photo from '../../images/profile-pic.png'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import AnimatedLetters from '../AnimatedLetters'
+import Logo from './Logo'
 import './index.scss'
 
 const Home = () => {
@@ -11,18 +13,19 @@ const Home = () => {
 
     useEffect(() => {
         const t = setTimeout(() => {
-                    setLetterClass('text-animate-hover');
-                },3000)
-        return () => {clearTimeout(t);}
-        },[],)
+            setLetterClass('text-animate-hover');
+        }, 3000)
+        return () => { clearTimeout(t); }
+    }, [],)
 
     return (
         <div className="container home-page">
+            <img className="photo" src={Photo} alt="aldova" />
+            <br />
             <div className="text-zone">
                 <h1>
                     <span className={letterClass}>H</span>
-                    <span className={`${letterClass} _12`}>i,</span>
-                    <br />
+                    <span className={`${letterClass} _12`}>i,&nbsp;</span>
                     <span className={`${letterClass} _13`}>I</span>
                     <span className={`${letterClass} _14`}>'m</span>
                     <img src={LogoTitle} alt="developer" />
@@ -37,6 +40,7 @@ const Home = () => {
                     CONTACT ME
                 </Link>
             </div>
+            <Logo />
         </div>
     )
 }
