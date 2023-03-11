@@ -19,10 +19,11 @@
     animation-delay: 1s;
 }
 
-.about-page {
+.about-page,
+.contact-page {
     .text-zone {
         position: absolute;
-        right: 10%;
+        left: 10%;
         top: 50%;
         transform: translateY(-50%);
         width: 35%;
