@@ -19,7 +19,7 @@
     }
   }
   
-  @for $i from 1 through 47 {
+  @for $i from 1 through 50 {
     .text-animate._#{$i} {
       animation-delay: #{calc($i / 20)}s;
     }
