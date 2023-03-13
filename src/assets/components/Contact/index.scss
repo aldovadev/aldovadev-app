@@ -36,10 +36,10 @@
     input[type='email'] {
         width: 100%;
         border: 0;
-        background: #d0d0d0;
+        background: rgba(255, 99, 71, 0.2);
         height: 50px;
         font-size: 16px;
-        color: #4d4d4d;
+        color: #054a91;
         padding: 0 20px;
         box-sizing: border-box;
     }
@@ -47,13 +47,14 @@
     textarea {
         width: 100%;
         border: 0;
-        background: #d0d0d0;
+        background: rgba(255, 99, 71, 0.2);
         height: 50px;
         font-size: 16px;
-        color: #4d4d4d;
+        color: #054a91;
         padding: 20px;
         min-height: 150px;
         box-sizing: border-box;
+        border-radius: 1.5px;
     }
 
     .flat-button {
@@ -65,6 +66,7 @@
         padding: 8px 10px;
         border: 1px solid tomato;
         float: right;
+        border-radius: 2px;
 
         &:hover {
             background: tomato;
@@ -72,3 +74,44 @@
         }
     }
 }
+
+.info-map {
+    position: absolute;
+    background-color: #000000;
+    top: 10px;
+    right: 29%;
+    z-index: 10;
+    width: 267;
+    padding: 20px;
+    color: #054a91;
+    font-family: 'Helvetica';
+    font-size: 17px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeIn 1s 1.5s;
+    animation-fill-mode: forwards;
+
+    span {
+        font-size: 16px;
+        display: block;
+        padding-top: 20px;
+        color: tomato;
+    }
+}
+
+.map-wrap {
+    background-color: rgba(5, 74, 145, 0.1);
+    float: right;
+    width: 53%;
+    height: 100%;
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    opacity: 0;
+    animation: backInRight 1s 1.2s;
+    animation-fill-mode: forwards
+}
+
