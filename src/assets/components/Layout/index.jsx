@@ -5,7 +5,7 @@ import './index.scss'
 const Layout = () => {
     return (
         <div className="App">
-            <Sidebar />
+            <Sidebar/>
             <div className="page">
                 <Outlet />
             </div>
