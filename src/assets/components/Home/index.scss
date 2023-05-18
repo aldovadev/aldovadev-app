@@ -7,7 +7,7 @@
     height: 100%;
     flex-wrap: wrap;
     opacity: 0;
-    margin-left: 50\px;
+    margin-left: 50px;
     transform-style: preserve-3d;
     animation: fadeIn 1s forwards;
     animation-delay: 1s;
@@ -16,7 +16,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       min-width: 45%;
       max-width: 50%;
       padding: 20px;
@@ -50,7 +50,7 @@
         font-size: 11px;
         font-family: sans-serif;
         letter-spacing: 3px;
-        margin: 10px;
+        margin: 10px 10px 30px 10px;
         animation: fadeIn 1s 1.8s backwards;
       }
 
@@ -67,12 +67,12 @@
         border: 1px solid tomato;
         border-radius: 2px;
         padding: 10px;
-        margin-top: 10px;
+        margin-top: 40px;
         margin-left: 10px;
         animation: fadeIn 1s 1.8s backwards;
 
         &:hover {
-          background: tomato;
+          background: white;
           color: #054a91;
         }
       }
@@ -82,7 +82,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       min-width: 45%;
       max-width: 50%;
       padding: 20px;
@@ -93,7 +93,6 @@
         max-width: 85%;
         height: auto;
         transform: rotateZ(30deg);
-        margin-left: 100px;
       }
 
       .solid-logo {
@@ -102,7 +101,6 @@
         max-width: 85%;
         height: auto;
         transform: rotateZ(30deg);
-        margin-left: 100px;
       }
     }
   }
