@@ -1,19 +1,16 @@
 .home-page {
   .home-content {
-    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 100%;
     flex-wrap: wrap;
-    opacity: 0;
     margin-left: 50px;
+    opacity: 0;
     transform-style: preserve-3d;
     animation: fadeIn 1s forwards;
     animation-delay: 1s;
 
     .text-zone {
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -38,7 +35,6 @@
         img {
           width: 32px;
           opacity: 0;
-          height: auto;
           animation: rotateIn 1s linear both;
           animation-delay: 1.4s;
         }
@@ -56,7 +52,8 @@
 
       .flat-button {
         color: tomato;
-        width: 150px;
+        width: 180px;
+        height: 80px;
         font-size: 13px;
         font-weight: 400;
         letter-spacing: 4px;
@@ -65,14 +62,14 @@
         text-align: center;
         text-decoration: none;
         border: 1px solid tomato;
-        border-radius: 2px;
+        border-radius: 4px;
         padding: 10px;
         margin-top: 40px;
         margin-left: 10px;
         animation: fadeIn 1s 1.8s backwards;
 
         &:hover {
-          background: white;
+          background: tomato;
           color: #054a91;
         }
       }

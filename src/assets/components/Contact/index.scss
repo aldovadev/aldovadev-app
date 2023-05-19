@@ -125,19 +125,22 @@
   }
 
   .flat-button {
-    color: #054a91;
-    background: 0 0;
-    font-size: 11px;
+    width: 100px;
+    height: 40px;
+    font-weight: 400;
+    color: tomato;
+    font-family: sans-serif;
+    font-size: 13px;
     letter-spacing: 3px;
     text-decoration: none;
-    padding: 8px 10px;
-    border: 1px solid #054a91;
+    padding: 5px;
+    border: 1px solid tomato;
     float: right;
-    border-radius: 2px;
+    border-radius: 4px;
 
     &:hover {
-      background: #054a91;
-      color: white;
+      background: tomato;
+      color: #054a91;
       cursor: pointer;
     }
   }
