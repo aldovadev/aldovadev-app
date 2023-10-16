@@ -21,17 +21,17 @@ const Sidebar = () => (
             <div className='sosial'>
                 <ul>
                     <li>
-                        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/aldova-dev">
+                        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/aldovadev">
                         <FontAwesomeIcon icon={faLinkedin} color='#4d4d4e' /> 
                         </a>
                     </li>
                     <li>
-                        <a target="_blank" rel="noreferrer" href="https://github.com/aldova-dev">
+                        <a target="_blank" rel="noreferrer" href="https://github.com/aldovadev">
                         <FontAwesomeIcon icon={faGithub} color='#4d4d4e' /> 
                         </a>
                     </li>
                     <li>
-                        <a target="_blank" rel="noreferrer" href="https://twitter.com/yunomiplay">
+                        <a target="_blank" rel="noreferrer" href="https://twitter.com/aldovadev">
                         <FontAwesomeIcon icon={faTwitter} color='#4d4d4e' /> 
                         </a>
                     </li>
