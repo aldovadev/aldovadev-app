@@ -23,16 +23,10 @@
         color: #4d4d4e;
         padding: 5px;
 
+        &.active,
         &:hover {
           color: tomato;
-
-          svg {
-            opacity: 0;
-          }
-
-          &:after {
-            opacity: 1;
-          }
+          filter: drop-shadow(0 0 0.25rem tomato);
         }
       }
     }
@@ -57,7 +51,16 @@
           padding: 2px;
 
           a {
-            color: tomato;
+            color: #4d4d4e;
+
+            &:hover {
+              color: tomato;
+              filter: drop-shadow(0 0 0.25rem tomato);
+            }
+
+            &:after {
+              opacity: 1;
+            }
           }
         }
       }

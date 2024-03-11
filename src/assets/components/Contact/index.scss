@@ -137,11 +137,13 @@
     border: 1px solid tomato;
     float: right;
     border-radius: 4px;
+    background-color: transparent;
 
     &:hover {
       background: tomato;
       color: #054a91;
       cursor: pointer;
+      filter: drop-shadow(0 0 0.75rem tomato);
     }
   }
 }

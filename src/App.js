@@ -1,14 +1,16 @@
-import './App.scss';
-import { Route, Routes } from 'react-router-dom';
-import Layout from './assets/components/Layout';
-import Home from './assets/components/Home';
-import About from './assets/components/About';
-import Contact from './assets/components/Contact';
+import './App.scss'
+import { Route, Routes } from 'react-router-dom'
+import Layout from './assets/components/Layout'
+import Home from './assets/components/Home'
+import About from './assets/components/About'
+import Contact from './assets/components/Contact'
+import ParticleBackground from './particleBackground'
 
 function App() {
   return (
     <>
       <Routes>
+        <ParticleBackground />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" index element={<About />} />
@@ -16,7 +18,7 @@ function App() {
         </Route>
       </Routes>
     </>
-  );
+  )
 }
 
 export default App

@@ -1,4 +1,8 @@
 .home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .home-content {
     display: flex;
     flex-direction: row;
@@ -20,6 +24,7 @@
 
       .photo {
         width: 300px;
+        height: 340px;
         animation: fadeIn 1s 0s backwards;
         margin-left: 10px;
       }
@@ -32,11 +37,18 @@
         line-height: 60px;
         margin: 10px;
 
+        .job-container {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
         img {
           width: 32px;
           opacity: 0;
           animation: rotateIn 1s linear both;
           animation-delay: 1.4s;
+          margin-right: 5px;
         }
       }
 
@@ -71,6 +83,7 @@
         &:hover {
           background: tomato;
           color: #054a91;
+          filter: drop-shadow(0 0 0.75rem tomato);
         }
       }
     }
@@ -86,7 +99,7 @@
 
       svg {
         position: absolute;
-        width: 400px;
+        width: 350px;
         max-width: 85%;
         height: auto;
         transform: rotateZ(30deg);
@@ -94,10 +107,14 @@
 
       .solid-logo {
         position: absolute;
-        width: 400px;
+        width: 350px;
         max-width: 85%;
         height: auto;
         transform: rotateZ(30deg);
+
+        &:hover {
+          filter: drop-shadow(0 0 0.75rem tomato);
+        }
       }
     }
   }
