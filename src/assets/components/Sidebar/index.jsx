@@ -1,25 +1,55 @@
 import './index.scss'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faHome, faIdCard } from '@fortawesome/free-solid-svg-icons'
 import {
   faGithub,
   faInstagram,
   faLinkedin,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
+import Avatar from 'react-avatar'
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 const Sidebar = () => (
   <header className="nav-bar">
     <nav>
       <div className="menu">
-        <NavLink exact="true" activeclassname="active" to="/">
+        <NavLink
+          data-tooltip-id="menu-tooltip-1"
+          exact="true"
+          activeclassname="active"
+          to="/"
+        >
+          <Avatar
+            src="https://lh3.googleusercontent.com/a/ACg8ocImkIYAYhRnmBJGK1ChnAHmxdG38doZzoc-pSXqZK2pWtU=s576-c-no"
+            size="25"
+            round={true}
+            color="4d4d4e"
+          />
+        </NavLink>
+        <NavLink
+          data-tooltip-id="menu-tooltip-2"
+          exact="true"
+          activeclassname="active"
+          to="/"
+        >
           <FontAwesomeIcon icon={faHome} color="4d4d4e" />
         </NavLink>
-        <NavLink exact="true" activeclassname="active" to="/about">
-          <FontAwesomeIcon icon={faUser} color="4d4d4e" />
+        <NavLink
+          data-tooltip-id="menu-tooltip-3"
+          exact="true"
+          activeclassname="active"
+          to="/about"
+        >
+          <FontAwesomeIcon icon={faIdCard} color="4d4d4e" />
         </NavLink>
-        <NavLink exact="true" activeclassname="active" to="/contact">
+        <NavLink
+          data-tooltip-id="menu-tooltip-4"
+          exact="true"
+          activeclassname="active"
+          to="/contact"
+        >
           <FontAwesomeIcon icon={faEnvelope} color="4d4d4e" />
         </NavLink>
       </div>
@@ -64,6 +94,10 @@ const Sidebar = () => (
         </ul>
       </div>
     </nav>
+    <ReactTooltip id="menu-tooltip-1" place="bottom" content="Aldovadev" />
+    <ReactTooltip id="menu-tooltip-2" place="bottom" content="Home" />
+    <ReactTooltip id="menu-tooltip-3" place="bottom" content="About" />
+    <ReactTooltip id="menu-tooltip-4" place="bottom" content="Contact" />
   </header>
 )
 

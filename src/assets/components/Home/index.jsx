@@ -7,11 +7,18 @@ import LogoS from '../../images/logo-s.png'
 import gsap from 'gsap-trial'
 import './index.scss'
 import Loader from 'react-loaders'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const nameArray = ['l', 'd', 'o', 'v', 'a']
-  const jobStartArray = ['S', 'o', 'f', 't', 'w', 'a', 'r', 'e', ' ']
+  const jobStartArray = ['A', ' ', 'S', 'o', 'f', 't', 'w', 'a', 'r', 'e', ' ']
   const jobEndArray = ['E', 'n', 'g', 'i', 'n', 'e', 'e', 'r']
 
   useEffect(() => {
@@ -64,17 +71,23 @@ const Home = () => {
             <div className="text-content">
               <img className="photo" src={Photo} alt="aldova" />
               <h1>
-                <span className={letterClass}>H</span>
-                <span className={`${letterClass} _12`}>i,&nbsp;</span>
-                <span className={`${letterClass} _13`}>I</span>
-                <span className={`${letterClass} _14`}>'m &nbsp;</span>
-                <img className="engineer" src={LogoTitle} alt="engineer" />
-                <AnimatedLetters
-                  letterClass={letterClass}
-                  s
-                  strArray={nameArray}
-                  idx={30}
-                />
+                <div className="name-container">
+                  <div>
+                    <span className={letterClass}>H</span>
+                    <span className={`${letterClass} _12`}>i,&nbsp;</span>
+                    <span className={`${letterClass} _13`}>I</span>
+                    <span className={`${letterClass} _14`}>'m &nbsp;</span>
+                  </div>
+                  <div>
+                    <img className="engineer" src={LogoTitle} alt="engineer" />
+                    <AnimatedLetters
+                      letterClass={letterClass}
+                      s
+                      strArray={nameArray}
+                      idx={30}
+                    />
+                  </div>
+                </div>
                 <div className="job-container">
                   <div>
                     <AnimatedLetters
@@ -92,10 +105,50 @@ const Home = () => {
                   </div>
                 </div>
               </h1>
-              <h2>Problem Solver / Tech Enthusias / Gamer</h2>
+              <h2>Problem Solver | Tech Enthusias | Gamer</h2>
               <Link to="/contact" className="flat-button">
                 CONTACT ME
               </Link>
+              <div className="sosial">
+                <ul>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://www.linkedin.com/in/aldovadev"
+                    >
+                      <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://github.com/aldovadev"
+                    >
+                      <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://twitter.com/aldovadev"
+                    >
+                      <FontAwesomeIcon icon={faTwitter} />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://www.instagram.com/aldovadev/"
+                    >
+                      <FontAwesomeIcon icon={faInstagram} />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <div className="logo-zone">
