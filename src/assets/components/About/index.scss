@@ -11,7 +11,6 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    text-align: justify;
     top: 25%;
     width: 35%;
     margin-left: 15%;
@@ -71,8 +70,9 @@
     overflow: hidden;
     position: absolute;
     padding-top: 150px;
-    top: 20%;
+    top: 15%;
     right: 12.5%;
+    scale: 1.15;
 
     .cubespinner {
       animation-name: spincube;
@@ -160,8 +160,9 @@
     }
 
     .stage-cube-container {
-      top: -5%;
+      top: -15%;
       right: calc(50% - 175px);
+      scale: 0.8;
     }
   }
 }

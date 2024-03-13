@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AnimatedLetters from '../AnimatedLetters'
 import { useEffect, useState } from 'react'
 import {
-  faHtml5,
-  faCss3,
-  faGitAlt,
-  faJsSquare,
+  faSass,
+  faDocker,
+  faUbuntu,
+  faNodeJs,
   faReact,
   faAngular,
 } from '@fortawesome/free-brands-svg-icons'
@@ -33,19 +33,19 @@ const About = () => {
               <FontAwesomeIcon icon={faReact} color="#61DBFB" />
             </div>
             <div className="face2">
-              <FontAwesomeIcon icon={faHtml5} color="#e34c26" />
+              <FontAwesomeIcon icon={faSass} color="#cc6699" />
             </div>
             <div className="face3">
-              <FontAwesomeIcon icon={faCss3} color="#264de4" />
+              <FontAwesomeIcon icon={faDocker} color="#264de4" />
             </div>
             <div className="face4">
               <FontAwesomeIcon icon={faAngular} color="#dd1b16" />
             </div>
             <div className="face5">
-              <FontAwesomeIcon icon={faJsSquare} color="#f0db4f" />
+              <FontAwesomeIcon icon={faNodeJs} color="#215732" />
             </div>
             <div className="face6">
-              <FontAwesomeIcon icon={faGitAlt} color="#F1502F" />
+              <FontAwesomeIcon icon={faUbuntu} color="#E95420" />
             </div>
           </div>
         </div>
@@ -95,11 +95,6 @@ const About = () => {
               height="20px"
             />
             <img
-              src="https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white"
-              alt="norefferer"
-              height="20px"
-            />
-            <img
               src="https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white"
               alt="norefferer"
               height="20px"
@@ -111,42 +106,6 @@ const About = () => {
             />
             <img
               src="https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white"
-              alt="norefferer"
-              height="20px"
-            />
-            <img
-              src="https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white"
-              alt="norefferer"
-              height="20px"
-            />
-            {/* Cloud Provider */}
-            <img
-              src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white"
-              alt="norefferer"
-              height="20px"
-            />
-            <img
-              src="https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white"
-              alt="norefferer"
-              height="20px"
-            />
-            <img
-              src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white"
-              alt="norefferer"
-              height="20px"
-            />
-            <img
-              src="https://img.shields.io/badge/DigitalOcean-%230167ff.svg?style=for-the-badge&logo=digitalOcean&logoColor=white"
-              alt="norefferer"
-              height="20px"
-            />
-            <img
-              src="https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white"
-              alt="norefferer"
-              height="20px"
-            />
-            <img
-              src="https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase"
               alt="norefferer"
               height="20px"
             />
@@ -191,11 +150,6 @@ const About = () => {
               alt="norefferer"
               height="20px"
             />
-            <img
-              src="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white"
-              alt="norefferer"
-              height="20px"
-            />
             {/* Database */}
             <img
               src="https://img.shields.io/badge/mysql-%2300000f.svg?style=for-the-badge&logo=mysql&logoColor=white"
@@ -219,11 +173,6 @@ const About = () => {
             />
             <img
               src="https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white"
-              alt="norefferer"
-              height="20px"
-            />
-            <img
-              src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"
               alt="norefferer"
               height="20px"
             />
@@ -264,11 +213,6 @@ const About = () => {
             />
             <img
               src="https://img.shields.io/badge/grafana-F46800.svg?style=for-the-badge&logo=grafana&logoColor=white&color=%23F46800"
-              alt="norefferer"
-              height="20px"
-            />
-            <img
-              src="https://img.shields.io/badge/argo-EF7B4D.svg?style=for-the-badge&logo=argo&logoColor=white&color=%23EF7B4D"
               alt="norefferer"
               height="20px"
             />
