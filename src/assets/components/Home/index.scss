@@ -25,16 +25,15 @@
         width: 300px;
         height: 340px;
         animation: fadeIn 1s 0s backwards;
-        margin-left: 10px;
       }
 
       h1 {
-        color: #054a91;
+        color: #086cd1;
         font-size: 45px;
         font-family: 'Coolvetica';
         font-weight: 400;
         line-height: 60px;
-        margin: 10px;
+        margin: 10px 0;
 
         .name-container {
           display: flex;
@@ -49,7 +48,7 @@
         }
 
         img {
-          width: 32px;
+          width: 25px;
           opacity: 0;
           animation: rotateIn 1s linear both;
           animation-delay: 1.4s;
@@ -67,10 +66,10 @@
         font-size: 13px;
         font-family: sans-serif;
         letter-spacing: 3px;
-        margin: 10px 10px 30px 10px;
+        margin-bottom: 30px;
+        margin-top: 10px;
         animation: fadeIn 1s 1.8s backwards;
       }
-
       .flat-button {
         color: tomato;
         width: 180px;
@@ -86,7 +85,6 @@
         border-radius: 4px;
         padding: 10px;
         margin-top: 40px;
-        margin-left: 10px;
         animation: fadeIn 1s 1.8s backwards;
 
         &:hover {
@@ -159,7 +157,8 @@
           align-items: center;
 
           .photo {
-            margin-top: 20px;
+            margin-top: 10px;
+            margin-bottom: 15px;
             width: 240px;
             height: 280px;
           }
@@ -182,7 +181,7 @@
           }
 
           .flat-button {
-            margin: 0;
+            margin-top: 20px;
             height: 20px;
             width: 140px;
           }
@@ -192,7 +191,7 @@
             flex-direction: row;
             justify-content: end;
             height: 100%;
-            margin: 5px;
+            margin: 15px;
 
             ul {
               display: flex;
