@@ -23,8 +23,17 @@
 
       .photo {
         width: 300px;
-        height: 340px;
+        height: 320px;
         animation: fadeIn 1s 0s backwards;
+        background-color: rgba(azure, 0.3);
+        border-radius: 45px;
+        transition: 0.2s;
+
+        &:hover {
+          scale: 1.05;
+          transition: 0.2s;
+          filter: drop-shadow(0 0 0.75rem azure);
+        }
       }
 
       h1 {
@@ -106,6 +115,7 @@
       align-items: center;
       min-width: 45%;
       padding: 20px;
+      top: -10%;
 
       svg {
         position: absolute;
@@ -117,6 +127,7 @@
         animation-duration: 3s;
         animation-iteration-count: infinite;
         animation-timing-function: ease-in-out;
+        top: -20px;
       }
 
       .solid-logo {
@@ -129,6 +140,7 @@
         animation-duration: 3s;
         animation-iteration-count: infinite;
         animation-timing-function: ease-in-out;
+        top: -20px;
       }
 
       @keyframes floating {
@@ -160,7 +172,7 @@
             margin-top: 10px;
             margin-bottom: 15px;
             width: 240px;
-            height: 280px;
+            height: 260px;
           }
 
           h1 {
