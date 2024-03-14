@@ -207,11 +207,6 @@ const About = () => {
               height="20px"
             />
             <img
-              src="https://img.shields.io/badge/vault-FFEC6E.svg?style=for-the-badge&logo=vault&logoColor=white&color=%23FFEC6E"
-              alt="norefferer"
-              height="20px"
-            />
-            <img
               src="https://img.shields.io/badge/grafana-F46800.svg?style=for-the-badge&logo=grafana&logoColor=white&color=%23F46800"
               alt="norefferer"
               height="20px"
