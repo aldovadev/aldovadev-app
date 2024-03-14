@@ -22,8 +22,8 @@
       padding: 20px;
 
       .photo {
-        width: 300px;
-        height: 320px;
+        width: 280px;
+        height: 300px;
         animation: fadeIn 1s 0s backwards;
         background-color: rgba(azure, 0.3);
         border-radius: 45px;
@@ -160,7 +160,7 @@
   @media screen and (max-width: 768px) {
     .home-content {
       margin-left: 0;
-      margin-top: -50px;
+      margin-top: -40px;
       .text-zone {
         .text-content {
           display: flex;
@@ -170,9 +170,10 @@
 
           .photo {
             margin-top: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             width: 240px;
             height: 260px;
+            scale: 0.8;
           }
 
           h1 {
