@@ -10,13 +10,9 @@ My personal website, meticulously crafted with React, Particle.js, and Email.js,
 
 ## Tech Stack
 
+**Language:** Javascript
+
 **Client:** React, Sass, Particle.js, email.js, animate.css
-
-
-
-## Documentation
-
-[Documentation](https://react.dev)
 
 
 ## Run Locally
