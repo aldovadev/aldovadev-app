@@ -69,5 +69,5 @@ What optimizations did you make in your code? E.g. refactors, performance improv
 
 ## Feedback
 
-If you have any feedback, please reach out to us at aldova811@gmail.com
+If you have any feedback, please reach out to me at www.aldovadev.com/contact
 
