@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  aldovadev-app:
+    image: aldovadev/aldovadev-app:latest
+    container_name: aldovadev-app
+    restart: unless-stopped
+    networks:
+      - tunnel
+
+networks:
+  tunnel:
+    external: true
