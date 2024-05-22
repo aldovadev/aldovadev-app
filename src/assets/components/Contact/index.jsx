@@ -25,7 +25,7 @@ const Contact = () => {
         'service_ceujca4',
         'template_xyznakg',
         refForm.current,
-        'zRgU6VqWh6FyJdj3M'
+        '-iblX5sCmGQUe9QQ6'
       )
       .then(
         (result) => {
@@ -111,7 +111,7 @@ const Contact = () => {
         </div>
         <div className="map-container" id="ref-1">
           <iFrame
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.3338767320975!2d100.37143617514764!3d-0.8928676353230526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b89fa3ff38d1%3A0x8b7a5aaa7517ff8b!2sKos%20Tutwuri!5e0!3m2!1sen!2sid!4v1710375500358!5m2!1sen!2sid"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255314.42859743544!2d100.22645608261763!3d-0.9342364181843419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b942e2b117bb%3A0xb8468cb5c3046ba5!2sPadang%2C%20Padang%20City%2C%20West%20Sumatra!5e0!3m2!1sen!2sid!4v1716415021861!5m2!1sen!2sid"
             width="100%"
             height="100%"
             loading="lazy"
