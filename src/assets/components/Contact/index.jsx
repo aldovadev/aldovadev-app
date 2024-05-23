@@ -39,7 +39,7 @@ const Contact = () => {
   }
 
   const openGmaps = (e) => {
-    window.open('https://maps.app.goo.gl/Ku9BNaMeKp7RJ7B8A', '_blank')
+    window.open('https://maps.app.goo.gl/L9xh3vyfHMe2arFEA', '_blank')
   }
 
   return (
