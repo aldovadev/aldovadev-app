@@ -11,7 +11,7 @@ const Contact = () => {
   useEffect(() => {
     const t = setTimeout(() => {
       setLetterClass('text-animate-hover')
-    }, 2500)
+    }, 3000)
     return () => {
       clearTimeout(t)
     }
