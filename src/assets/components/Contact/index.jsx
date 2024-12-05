@@ -111,7 +111,7 @@ const Contact = () => {
         </div>
         <div className="map-container" id="ref-1">
           <iFrame
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255314.42859743544!2d100.22645608261763!3d-0.9342364181843419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b942e2b117bb%3A0xb8468cb5c3046ba5!2sPadang%2C%20Padang%20City%2C%20West%20Sumatra!5e0!3m2!1sen!2sid!4v1716415021861!5m2!1sen!2sid"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1982.7107201840292!2d106.9674153798396!3d-6.339423492275665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6993ac31c14e9d%3A0x8932d9d8aa431f12!2sVilla%20Nusa%20Indah%205%20Cluster%20Merak!5e0!3m2!1sen!2sid!4v1733406051975!5m2!1sen!2sid"
             width="100%"
             height="100%"
             loading="lazy"
