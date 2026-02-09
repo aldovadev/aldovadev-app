@@ -1,0 +1,70 @@
+[  473052ms] [ERROR] ./src/components/sections/Projects.tsx:93:1
+Parsing ecmascript source code failed
+  91 |     </section>
+  92 |   );
+> 93 | }
+     | ^
+  94 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./src/components/sections/Projects.tsx
+    ./src/app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[  473113ms] [ERROR] ./src/components/sections/Projects.tsx:93:1
+Parsing ecmascript source code failed
+  91 |     </section>
+  92 |   );
+> 93 | }
+     | ^
+  94 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./src/components/sections/Projects.tsx
+    ./src/app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[  473160ms] [ERROR] ./src/components/sections/Projects.tsx:93:1
+Parsing ecmascript source code failed
+  91 |     </section>
+  92 |   );
+> 93 | }
+     | ^
+  94 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./src/components/sections/Projects.tsx
+    ./src/app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[  488963ms] [ERROR] ./src/components/sections/Blog.tsx:68:1
+Parsing ecmascript source code failed
+  66 |     </section>
+  67 |   );
+> 68 | }
+     | ^
+  69 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./src/components/sections/Blog.tsx
+    ./src/app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[  497159ms] [ERROR] ./src/components/sections/Blog.tsx:68:1
+Parsing ecmascript source code failed
+  66 |     </section>
+  67 |   );
+> 68 | }
+     | ^
+  69 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import trace:
+  Server Component:
+    ./src/components/sections/Blog.tsx
+    ./src/app/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
