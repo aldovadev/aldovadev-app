@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aldovadev App
+
+Personal portfolio site built with Next.js App Router, Tailwind CSS, and Framer Motion.
+
+## Table of Contents
+
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Architecture](#architecture)
+	- [System Overview](#system-overview)
+	- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+	- [Prerequisites](#prerequisites)
+	- [Installation](#installation)
+	- [Running the Application](#running-the-application)
+- [API](#api)
+- [Scripts Reference](#scripts-reference)
+- [Development Rules](#development-rules)
+
+---
+
+## Tech Stack
+
+| Component      | Technology     | Version |
+| -------------- | -------------- | ------- |
+| **Runtime**    | Node.js        | 20+     |
+| **Framework**  | Next.js        | 16.x    |
+| **Language**   | TypeScript     | 5.x     |
+| **UI**         | React          | 19.x    |
+| **Styling**    | Tailwind CSS   | 4.x     |
+| **Motion**     | Framer Motion  | 12.x    |
+| **3D/FX**      | Three.js       | 0.18x   |
+| **Icons**      | Lucide, RI     | Latest |
+
+---
+
+## Features
+
+- Responsive layout with App Router and server components
+- Animated sections and interactive UI elements
+- Data-driven sections for projects and blog content
+- Contact API route for form submissions
+- Dark mode and motion-aware UI behaviors
+
+---
+
+## Architecture
+
+### System Overview
+
+This project uses the Next.js App Router with a component-first structure.
+
+### Project Structure
+
+```
+src/
+	app/                 # App Router pages, layouts, route handlers
+	components/          # UI + layout + section components
+		layout/
+		sections/
+		ui/
+	data/                # Static content modules
+	hooks/               # Custom React hooks
+	lib/                 # Utilities and helpers
+	types/               # Shared TypeScript types
+public/                # Static assets
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+
+- npm
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Running the Application
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Development
+npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Production build
+npm run build
 
-## Learn More
+# Start production server
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `POST /api/contact` - contact form submission endpoint
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts Reference
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Script        | Description            |
+| ------------ | ---------------------- |
+| `npm run dev`   | Start dev server       |
+| `npm run build` | Build for production   |
+| `npm run start` | Start production server|
+| `npm run lint`  | Run ESLint             |
+
+---
+
+## Development Rules
+
+See RULES.md for coding standards, review checklist, and documentation requirements.

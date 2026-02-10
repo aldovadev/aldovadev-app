@@ -2,8 +2,22 @@
 
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Send } from "lucide-react";
-import { Footer } from "@/components/layout";
+import { Mail, ArrowRight, Send, Github, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+const socialLinks = [
+  { name: "GitHub", href: "https://github.com/aldovadev", icon: Github },
+  { name: "X", href: "https://x.com/aldovadev", icon: XIcon },
+  { name: "LinkedIn", href: "https://linkedin.com/in/aldovadev", icon: Linkedin },
+];
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -53,20 +67,19 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative section-screen justify-between! text-foreground bg-background"
+      className="relative section-screen text-foreground bg-background"
     >
       <div className="container-main flex-1 flex flex-col justify-center items-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="section-title text-center mb-20"
+          className="section-title text-center mb-12"
         >
           GET IN <span className="text-tomato">TOUCH</span>
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 w-full max-w-5xl">
-          {/* Left - Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full max-w-5xl">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -106,7 +119,6 @@ export function Contact() {
             </div>
           </motion.div>
 
-          {/* Right - Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -194,10 +206,10 @@ export function Contact() {
                 />
               </div>
 
-              <button
+              <Button
                 type="submit"
                 disabled={status === "sending"}
-                className="btn btn-primary w-full mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full mt-2"
               >
                 {status === "sending" ? (
                   <>
@@ -217,14 +229,43 @@ export function Contact() {
                     Send Message
                   </>
                 )}
-              </button>
+              </Button>
             </form>
           </motion.div>
         </div>
       </div>
 
-      {/* Footer inside contact section */}
-      <Footer />
+      <footer className="border-t border-border-color w-full mt-auto">
+        <div className="container-main py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-5xl mx-auto">
+            <div className="flex flex-col items-center sm:items-start gap-1">
+              <span className="text-sm font-bold tracking-tight uppercase">
+                CODEWITH<span className="text-tomato">ALDOVA</span>
+              </span>
+              <p className="text-xs text-foreground-muted">
+                © {new Date().getFullYear()} aldovadev. All rights reserved.
+              </p>
+            </div>
+            <div className="flex items-center gap-1">
+              {socialLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <Button key={link.name} variant="ghost" size="icon" asChild>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={link.name}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  </Button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </footer>
     </section>
   );
 }

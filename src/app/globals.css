@@ -1,17 +1,9 @@
 @import "tailwindcss";
 
-/* ========================================
-   DESIGN SYSTEM: Framer-Inspired
-   Brand: Tomato | Dark: Pure Black
-   ======================================== */
-
 :root {
-  /* Core Brand Colors */
   --tomato: #ff6347;
   --tomato-dark: #e5523a;
   --tomato-light: #ff8066;
-
-  /* Theme Colors */
   --background: #ffffff;
   --foreground: #0a0a0a;
   --foreground-muted: #6b7280;
@@ -54,16 +46,6 @@
   --animate-star-movement-top: star-movement-top linear infinite alternate;
 }
 
-/* ========================================
-   BASE STYLES
-   ======================================== */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -84,11 +66,6 @@ body {
     color 0.3s ease;
 }
 
-/* ========================================
-   TYPOGRAPHY (Framer Style)
-   ======================================== */
-
-/* Hero Title */
 .hero-title {
   font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: 600;
@@ -96,7 +73,6 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* Section Title */
 .section-title {
   font-size: clamp(1.5rem, 2.5vw, 1.875rem);
   font-weight: 600;
@@ -104,46 +80,24 @@ body {
   letter-spacing: -0.01em;
 }
 
-/* ========================================
-   LAYOUT UTILITIES
-   ======================================== */
-
-/* Main Container */
 .container-main {
   width: 100%;
-  max-width: 80rem;
-  /* 1280px */
+  max-width: 72rem;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
 
-@media (min-width: 640px) {
-  .container-main {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-main {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-}
-
-/* Section Layout — full viewport height */
 .section-screen {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
 }
 
-/* Scroll snap — desktop only */
 @media (min-width: 1024px) {
   .scroll-snap-y-mandatory {
     scroll-snap-type: y mandatory;
@@ -155,50 +109,6 @@ body {
     min-height: 100dvh;
   }
 }
-
-/* ========================================
-   BUTTON STYLES
-   ======================================== */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  height: 2.5rem;
-  padding: 0 1.25rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  transition: all 0.15s ease-out;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  white-space: nowrap;
-}
-
-.btn-primary {
-  background: var(--tomato);
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background: var(--tomato-dark);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--foreground);
-  border: 1px solid var(--border-color);
-}
-
-.btn-outline:hover {
-  border-color: var(--foreground-muted);
-}
-
-/* ========================================
-   CARD STYLES
-   ======================================== */
 
 .card {
   background: var(--card-bg);
@@ -212,16 +122,10 @@ body {
   border-color: var(--border-color-hover);
 }
 
-/* ========================================
-   ANIMATIONS
-   ======================================== */
-
-/* Hover Transition */
 .hover-transition {
   transition: all 0.2s ease-out;
 }
 
-/* Gradient Text */
 .gradient-text {
   background: linear-gradient(135deg,
       var(--tomato) 0%,
@@ -231,18 +135,10 @@ body {
   background-clip: text;
 }
 
-/* ========================================
-   SELECTION
-   ======================================== */
-
 ::selection {
   background: var(--tomato);
   color: white;
 }
-
-/* ========================================
-   ANIMATIONS
-   ======================================== */
 
 @keyframes star-movement-bottom {
   0% {
@@ -268,182 +164,42 @@ body {
   }
 }
 
-/* ========================================
-   GOOEY NAV
-   ======================================== */
-
-:root {
-  --gooey-linear-ease: linear(0, 0.068, 0.19 2.7%, 0.804 8.1%, 1.037, 1.199 13.2%, 1.245, 1.27 15.8%, 1.274, 1.272 17.4%, 1.249 19.1%, 0.996 28%, 0.949, 0.928 33.3%, 0.926, 0.933 36.8%, 1.001 45.6%, 1.013, 1.019 50.8%, 1.018 54.4%, 1 63.1%, 0.995 68%, 1.001 85%, 1);
-  --gooey-color-1: var(--tomato);
-  --gooey-color-2: tomato;
-  --gooey-color-3: #fff;
-  --gooey-color-4: var(--tomato-light);
-  --gooey-text-color: #1a1a2e;
-  --gooey-active-text: white;
-  --gooey-filter-bg: white;
-  --gooey-pill-bg: #1a1a2e;
-  --gooey-blend: darken;
-}
-
-.dark {
-  --gooey-text-color: white;
-  --gooey-active-text: black;
-  --gooey-filter-bg: black;
-  --gooey-pill-bg: white;
-  --gooey-blend: lighten;
-}
-
-.gooey-effect {
-  position: absolute;
-  opacity: 1;
-  pointer-events: none;
-  display: grid;
-  place-items: center;
-  z-index: 1;
-}
-
-.gooey-effect.gooey-text {
-  color: var(--gooey-text-color);
-  transition: color 0.3s ease;
-}
-
-.gooey-effect.gooey-text.active {
-  color: var(--gooey-active-text);
-}
-
-.gooey-effect.gooey-filter {
-  filter: blur(7px) contrast(100) blur(0);
-  mix-blend-mode: var(--gooey-blend);
-}
-
-.gooey-effect.gooey-filter::before {
-  content: "";
-  position: absolute;
-  inset: -75px;
-  z-index: -2;
-  background: var(--gooey-filter-bg);
-}
-
-.gooey-effect.gooey-filter::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--gooey-pill-bg);
-  transform: scale(0);
-  opacity: 0;
-  z-index: -1;
-  border-radius: 9999px;
-}
-
-.gooey-effect.active::after {
-  animation: gooey-pill 0.3s ease both;
-}
-
-@keyframes gooey-pill {
+@keyframes shimmer-slide {
   to {
-    transform: scale(1);
-    opacity: 1;
+    transform: translate(calc(100cqw - 100%), 0);
   }
 }
 
-.gooey-particle,
-.gooey-point {
-  display: block;
-  opacity: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 9999px;
-  transform-origin: center;
-}
-
-.gooey-particle {
-  --time: 5s;
-  position: absolute;
-  top: calc(50% - 8px);
-  left: calc(50% - 8px);
-  animation: gooey-particle-anim calc(var(--time)) ease 1 -350ms;
-}
-
-.gooey-point {
-  background: var(--color);
-  opacity: 1;
-  animation: gooey-point-anim calc(var(--time)) ease 1 -350ms;
-}
-
-@keyframes gooey-particle-anim {
+@keyframes spin-around {
   0% {
-    transform: rotate(0deg) translate(calc(var(--start-x)), calc(var(--start-y)));
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
+    transform: translateZ(0) rotate(0);
   }
 
-  70% {
-    transform: rotate(calc(var(--rotate) * 0.5)) translate(calc(var(--end-x) * 1.2), calc(var(--end-y) * 1.2));
-    opacity: 1;
-    animation-timing-function: ease;
+  15%,
+  35% {
+    transform: translateZ(0) rotate(90deg);
   }
 
+  65%,
   85% {
-    transform: rotate(calc(var(--rotate) * 0.66)) translate(calc(var(--end-x)), calc(var(--end-y)));
-    opacity: 1;
+    transform: translateZ(0) rotate(270deg);
   }
 
   100% {
-    transform: rotate(calc(var(--rotate) * 1.2)) translate(calc(var(--end-x) * 0.5), calc(var(--end-y) * 0.5));
-    opacity: 1;
+    transform: translateZ(0) rotate(360deg);
   }
 }
 
-@keyframes gooey-point-anim {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-    animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45);
-  }
-
-  25% {
-    transform: scale(calc(var(--scale) * 0.25));
-  }
-
-  38% {
-    opacity: 1;
-  }
-
-  65% {
-    transform: scale(var(--scale));
-    opacity: 1;
-    animation-timing-function: ease;
-  }
-
-  85% {
-    transform: scale(var(--scale));
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(0);
-    opacity: 0;
-  }
+.animate-shimmer-slide {
+  animation: shimmer-slide var(--speed) ease-in-out infinite alternate;
 }
 
-.gooey-nav-list li.active {
-  color: var(--gooey-active-text);
-  text-shadow: none;
+.animate-spin-around {
+  animation: spin-around calc(var(--speed) * 2) infinite linear;
 }
 
-.gooey-nav-list li.active::after {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.gooey-nav-list li::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 8px;
-  background: transparent;
-  opacity: 0;
-  transform: scale(0);
-  transition: all 0.3s ease;
-  z-index: -1;
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }

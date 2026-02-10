@@ -1,5 +1,3 @@
-// Type definitions for the portfolio
-
 export interface Project {
   id: string;
   title: string;

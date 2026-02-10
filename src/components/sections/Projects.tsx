@@ -21,7 +21,6 @@ export function Projects() {
             SELECTED <span className="text-tomato">WORKS</span>
           </motion.h2>
 
-          {/* Horizontal Grid - Centered */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl">
           {projects.map((project, index) => (
             <motion.div
@@ -32,8 +31,7 @@ export function Projects() {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="card group hover:border-tomato/30 hover-transition p-0 overflow-hidden"
             >
-              {/* Project Image */}
-              <div className="w-full aspect-video relative bg-gradient-to-br from-card-bg via-card-bg to-tomato/5">
+              <div className="w-full aspect-video relative bg-linear-to-br from-card-bg via-card-bg to-tomato/5">
                 <div className="absolute inset-0 bg-linear-to-tr from-tomato/10 to-transparent opacity-0 group-hover:opacity-100 hover-transition" />
                 <div className="w-full h-full flex flex-col items-center justify-center gap-2">
                   <div className="w-10 h-10 rounded-lg bg-tomato/10 flex items-center justify-center">
@@ -43,7 +41,6 @@ export function Projects() {
                 </div>
               </div>
 
-              {/* Project Info */}
               <div className="p-5">
                 <h3 className="text-base font-semibold mb-2 group-hover:text-tomato hover-transition">
                   {project.title}

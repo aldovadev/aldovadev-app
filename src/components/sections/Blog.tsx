@@ -21,7 +21,6 @@ export function Blog() {
             THOUGHT <span className="text-tomato">STREAM</span>
           </motion.h2>
 
-          {/* Same pattern as Projects: w-full max-w-5xl */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl">
           {blogPosts.map((post, index) => (
             <motion.article

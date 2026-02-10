@@ -24,7 +24,6 @@ export function About() {
       className="relative section-screen text-foreground bg-surface"
     >
       <div className="container-main">
-        {/* Flex center wrapper for ALL content */}
         <div className="flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

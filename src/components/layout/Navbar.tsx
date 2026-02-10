@@ -1,14 +1,35 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useState, useEffect, useRef } from "react";
+import { Menu, X as MenuClose, Github, Linkedin } from "lucide-react";
 import { scrollToSection } from "@/lib/scroll";
 import Image from "next/image";
-import GooeyNav from "@/components/ui/GooeyNav";
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+const socialLinks = [
+  { name: "GitHub", href: "https://github.com/aldovadev", icon: Github },
+  { name: "X", href: "https://x.com/aldovadev", icon: XIcon },
+  { name: "LinkedIn", href: "https://linkedin.com/in/aldovadev", icon: Linkedin },
+];
+import {
+  Navbar as NavbarRoot,
+  NavLogo,
+  NavItems,
+  NavActions,
+  MobileNav,
+} from "@/components/ui/ResizableNavbar";
+import { AnimatedThemeToggler } from "@/components/ui/AnimatedThemeToggler";
+import { Button } from "@/components/ui/Button";
 
 const navItems = [
+  { label: "Home", href: "#home" },
   { label: "About Me", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Blog", href: "#blog" },
@@ -17,84 +38,48 @@ const navItems = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(true);
   const [activeSection, setActiveSection] = useState("#home");
-  const gooeyContainerRef = useRef<HTMLDivElement>(null);
   const activeSectionRef = useRef("#home");
 
-  // Sync GooeyNav indicator to match a given section hash
-  const syncGooey = useCallback((hash: string) => {
-    const gooeyIndex = navItems.findIndex((item) => item.href === hash);
-    if (gooeyIndex >= 0) {
-      const gooeyDiv = gooeyContainerRef.current?.firstElementChild as
-        | (HTMLDivElement & { __setActive?: (i: number) => void })
-        | null;
-      gooeyDiv?.__setActive?.(gooeyIndex);
-    }
-  }, []);
-
-  // Scroll-spy: use scroll position to determine active section
   useEffect(() => {
     const main = document.querySelector("main");
     if (!main) return;
 
-    const sectionIds = [
-      "home",
-      ...navItems.map((item) => item.href.replace("#", "")),
-    ];
+    const sectionIds = navItems.map((item) => item.href.replace("#", ""));
 
     const updateActive = () => {
-      setIsScrolled(main.scrollTop > 50);
-
       const scrollCenter = main.scrollTop + main.clientHeight / 2;
       let currentId = "home";
 
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (!el) continue;
-        if (el.offsetTop <= scrollCenter) {
-          currentId = id;
-        }
+        if (el.offsetTop <= scrollCenter) currentId = id;
       }
 
       const hash = `#${currentId}`;
       if (activeSectionRef.current !== hash) {
         activeSectionRef.current = hash;
         setActiveSection(hash);
-        syncGooey(hash);
       }
     };
 
     main.addEventListener("scroll", updateActive, { passive: true });
-    // Run once on mount to set initial state
     updateActive();
-
     return () => main.removeEventListener("scroll", updateActive);
-  }, [syncGooey]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    if (stored === "light") {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
-    } else {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    }
   }, []);
 
-  const toggleTheme = () => {
-    const next = !isDark;
-    setIsDark(next);
-    if (next) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
+  useEffect(() => {
+    const sectionNames: Record<string, string> = {
+      "#home": "Home",
+      "#about": "About Me",
+      "#projects": "Projects",
+      "#blog": "Blog",
+      "#contact": "Contact",
+    };
+    const sectionName = sectionNames[activeSection] || "Home";
+    document.title = `CODEWITHALDOVA - ${sectionName}`;
+  }, [activeSection]);
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
@@ -103,16 +88,8 @@ export function Navbar() {
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent",
-        )}
-      >
-        <div className="container-main flex items-center justify-between h-16">
-          {/* Logo */}
+      <NavbarRoot>
+        <NavLogo>
           <a
             href="#home"
             onClick={(e) => {
@@ -134,97 +111,67 @@ export function Navbar() {
               CODEWITH<span className="text-tomato">ALDOVA</span>
             </span>
           </a>
+        </NavLogo>
 
-          {/* Desktop Nav — GooeyNav Center */}
-          <div className="hidden lg:block bg-transparent" ref={gooeyContainerRef}>
-            <GooeyNav
-              items={navItems}
-              particleCount={15}
-              particleDistances={[90, 10]}
-              particleR={100}
-              animationTime={600}
-              timeVariance={300}
-              initialActiveIndex={-1}
-              colors={[1, 2, 3, 1, 2, 3, 1, 4]}
-              onItemClick={(href) => handleNavClick(href)}
-            />
-          </div>
+        <NavItems
+          items={navItems}
+          activeSection={activeSection}
+          onItemClick={handleNavClick}
+        />
 
-          {/* Right Actions */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full text-foreground-muted hover:text-foreground hover:bg-card-bg transition-colors"
-              aria-label="Toggle theme"
-            >
-              {isDark ? (
-                <Sun className="w-4 h-4" />
-              ) : (
-                <Moon className="w-4 h-4" />
-              )}
-            </button>
-
-            {/* CTA Button — Desktop */}
-            <button
-              onClick={() => scrollToSection("#contact")}
-              className="hidden lg:inline-flex btn btn-outline uppercase tracking-wider"
-            >
-              Hire Me
-            </button>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 text-foreground hover:bg-card-bg rounded-md transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
-            </button>
-          </div>
-        </div>
-      </motion.nav>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-16 left-0 right-0 z-40 lg:hidden"
-          >
-            <div className="bg-background/95 backdrop-blur-2xl border-b border-border-color p-4 flex flex-col gap-1">
-              {navItems.map((item) => (
+        <NavActions>
+          <div className="hidden lg:flex items-center gap-1">
+            {socialLinks.map((link) => {
+              const Icon = link.icon;
+              return (
                 <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
-                  className={cn(
-                    "px-4 py-3 text-sm text-center rounded-lg transition-colors",
-                    "text-foreground-muted hover:text-foreground hover:bg-card-bg",
-                  )}
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.name}
+                  className="p-2 text-foreground-muted hover:text-foreground transition-colors"
                 >
-                  {item.label}
+                  <Icon className="w-4 h-4" />
                 </a>
-              ))}
-              <button
-                onClick={() => handleNavClick("#contact")}
-                className="mt-2 btn btn-outline w-full uppercase tracking-wider"
-              >
-                Hire Me
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              );
+            })}
+          </div>
+
+          <AnimatedThemeToggler />
+
+          <Button
+            onClick={() => scrollToSection("#contact")}
+            className="hidden lg:inline-flex uppercase tracking-wider px-10"
+          >
+            Contact Me
+          </Button>
+
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 text-foreground hover:bg-card-bg rounded-lg transition-colors cursor-pointer"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <MenuClose className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </NavActions>
+      </NavbarRoot>
+
+      <MobileNav
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        items={navItems}
+        activeSection={activeSection}
+        onItemClick={handleNavClick}
+      >
+        <Button
+          className="w-full uppercase tracking-wider mt-1"
+          size="sm"
+          onClick={() => handleNavClick("#contact")}
+        >
+          Contact Me
+        </Button>
+      </MobileNav>
     </>
   );
 }
