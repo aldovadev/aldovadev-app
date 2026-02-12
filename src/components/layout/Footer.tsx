@@ -23,16 +23,11 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border-color bg-background text-foreground">
-      <div className="container-main py-8">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col items-center sm:items-start gap-1">
-            <span className="text-sm font-bold tracking-tight uppercase">
-              CODEWITH<span className="text-tomato">ALDOVA</span>
-            </span>
-            <p className="text-xs text-foreground-muted">
-              © {currentYear} aldovadev. All rights reserved.
-            </p>
-          </div>
+      <div className="container-main py-4">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <span className="text-xs text-foreground-muted">
+            © {currentYear} CODEWITH<span className="text-tomato font-bold">ALDOVA</span>. All rights reserved.
+          </span>
 
           <div className="flex items-center gap-1">
             {socialLinks.map((link) => {

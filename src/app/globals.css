@@ -13,6 +13,7 @@
   --border-color-hover: #d1d1d1;
   --surface: #fafafa;
   --overlay: rgba(0, 0, 0, 0.5);
+  --experience-bg: #f8f8f8;
 }
 
 .dark {
@@ -25,6 +26,7 @@
   --border-color-hover: #2a2a2a;
   --surface: #050505;
   --overlay: rgba(0, 0, 0, 0.8);
+  --experience-bg: #111111;
 }
 
 @theme inline {
@@ -37,13 +39,12 @@
   --color-border-color-hover: var(--border-color-hover);
   --color-surface: var(--surface);
   --color-overlay: var(--overlay);
+  --color-experience-bg: var(--experience-bg);
   --color-tomato: var(--tomato);
   --color-tomato-dark: var(--tomato-dark);
   --color-tomato-light: var(--tomato-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --animate-star-movement-bottom: star-movement-bottom linear infinite alternate;
-  --animate-star-movement-top: star-movement-top linear infinite alternate;
 }
 
 html {
@@ -99,12 +100,7 @@ body {
 }
 
 @media (min-width: 1024px) {
-  .scroll-snap-y-mandatory {
-    scroll-snap-type: y mandatory;
-  }
-
   .section-screen {
-    scroll-snap-align: start;
     height: 100dvh;
     min-height: 100dvh;
   }
@@ -122,80 +118,9 @@ body {
   border-color: var(--border-color-hover);
 }
 
-.hover-transition {
-  transition: all 0.2s ease-out;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg,
-      var(--tomato) 0%,
-      var(--tomato-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 ::selection {
   background: var(--tomato);
   color: white;
-}
-
-@keyframes star-movement-bottom {
-  0% {
-    transform: translate(0%, 0%);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(-100%, 0%);
-    opacity: 0;
-  }
-}
-
-@keyframes star-movement-top {
-  0% {
-    transform: translate(0%, 0%);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(100%, 0%);
-    opacity: 0;
-  }
-}
-
-@keyframes shimmer-slide {
-  to {
-    transform: translate(calc(100cqw - 100%), 0);
-  }
-}
-
-@keyframes spin-around {
-  0% {
-    transform: translateZ(0) rotate(0);
-  }
-
-  15%,
-  35% {
-    transform: translateZ(0) rotate(90deg);
-  }
-
-  65%,
-  85% {
-    transform: translateZ(0) rotate(270deg);
-  }
-
-  100% {
-    transform: translateZ(0) rotate(360deg);
-  }
-}
-
-.animate-shimmer-slide {
-  animation: shimmer-slide var(--speed) ease-in-out infinite alternate;
-}
-
-.animate-spin-around {
-  animation: spin-around calc(var(--speed) * 2) infinite linear;
 }
 
 ::view-transition-old(root),

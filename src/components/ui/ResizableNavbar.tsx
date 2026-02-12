@@ -55,6 +55,11 @@ interface NavItemsProps {
   activeSection?: string;
   onItemClick?: (href: string) => void;
   className?: string;
+  renderLink?: (
+    item: { label: string; href: string },
+    isActive: boolean,
+    onClick: (href: string) => void,
+  ) => React.ReactNode;
 }
 
 export function NavItems({
@@ -62,23 +67,34 @@ export function NavItems({
   activeSection,
   onItemClick,
   className,
+  renderLink,
 }: NavItemsProps) {
   return (
     <div className={cn("hidden lg:flex flex-1 items-center justify-center gap-8", className)}>
-      {items.map((item) => (
-        <button
-          key={item.href}
-          onClick={() => onItemClick?.(item.href)}
-          className={cn(
-            "text-sm font-medium transition-colors cursor-pointer",
-            activeSection === item.href
-              ? "text-foreground"
-              : "text-foreground-muted hover:text-foreground",
-          )}
-        >
-          {item.label}
-        </button>
-      ))}
+      {items.map((item) => {
+        const isActive = activeSection === item.href;
+        if (renderLink) {
+          return (
+            <React.Fragment key={item.href}>
+              {renderLink(item, isActive, onItemClick ?? (() => {}))}
+            </React.Fragment>
+          );
+        }
+        return (
+          <button
+            key={item.href}
+            onClick={() => onItemClick?.(item.href)}
+            className={cn(
+              "text-sm font-medium transition-colors cursor-pointer",
+              isActive
+                ? "text-foreground"
+                : "text-foreground-muted hover:text-foreground",
+            )}
+          >
+            {item.label}
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -101,6 +117,11 @@ interface MobileNavProps {
   activeSection?: string;
   onItemClick?: (href: string) => void;
   children?: React.ReactNode;
+  renderLink?: (
+    item: { label: string; href: string },
+    isActive: boolean,
+    onClick: (href: string) => void,
+  ) => React.ReactNode;
 }
 
 export function MobileNav({
@@ -110,6 +131,7 @@ export function MobileNav({
   activeSection,
   onItemClick,
   children,
+  renderLink,
 }: MobileNavProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -142,23 +164,33 @@ export function MobileNav({
           className="fixed top-16 inset-x-0 z-40 lg:hidden"
         >
           <div className="bg-background/95 backdrop-blur-lg border-b border-border-color shadow-lg shadow-black/5 px-6 py-3 flex flex-col gap-0.5">
-            {items.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => {
-                  onItemClick?.(item.href);
-                  onClose();
-                }}
-                className={cn(
-                  "px-3 py-2.5 text-sm font-medium rounded-md transition-colors text-left cursor-pointer",
-                  activeSection === item.href
-                    ? "text-foreground bg-card-bg"
-                    : "text-foreground-muted hover:text-foreground hover:bg-card-bg",
-                )}
-              >
-                {item.label}
-              </button>
-            ))}
+            {items.map((item) => {
+              const isActive = activeSection === item.href;
+              if (renderLink) {
+                return (
+                  <React.Fragment key={item.href}>
+                    {renderLink(item, isActive, onItemClick ?? (() => {}))}
+                  </React.Fragment>
+                );
+              }
+              return (
+                <button
+                  key={item.href}
+                  onClick={() => {
+                    onItemClick?.(item.href);
+                    onClose();
+                  }}
+                  className={cn(
+                    "px-3 py-2.5 text-sm font-medium rounded-md transition-colors text-left cursor-pointer",
+                    isActive
+                      ? "text-foreground bg-card-bg"
+                      : "text-foreground-muted hover:text-foreground hover:bg-card-bg",
+                  )}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
             {children && (
               <div className="pt-2 border-t border-border-color mt-2">
                 {children}

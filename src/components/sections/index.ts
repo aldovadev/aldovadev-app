@@ -1,5 +1,5 @@
 export { Hero } from "./Hero";
-export { About } from "./About";
+export { Experience } from "./Experience";
 export { Projects } from "./Projects";
-export { Blog } from "./Blog";
+export { Philosophy } from "./Philosophy";
 export { Contact } from "./Contact";

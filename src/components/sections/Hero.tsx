@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { scrollToSection } from "@/lib/scroll";
 import { useDarkMode } from "@/hooks";
 import { GridScan } from "@/components/ui/GridScan";
 import Ballpit from "@/components/ui/Ballpit";
@@ -10,6 +9,7 @@ import { ShinyButton } from "@/components/ui/ShinyButton";
 import CountUp from "@/components/ui/CountUp";
 import TrueFocus from "@/components/ui/TrueFocus";
 import ProfileCard from "@/components/ui/ProfileCard";
+import { scrollToSection } from "@/lib/scroll";
 import { LogoLoop, type LogoItem } from "@/components/ui/LogoLoop";
 import { SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiPostgresql, SiDocker, SiAmazonwebservices, SiGo, SiTailwindcss, SiRedis } from "react-icons/si";
 
@@ -118,11 +118,11 @@ export function Hero() {
                     <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
                       <button
                         onClick={() => scrollToSection("#contact")}
-                        className="h-10 px-8 text-sm font-medium uppercase tracking-wider rounded-lg bg-[#ff6347] text-white hover:bg-[#ff6347]/90 transition-colors cursor-pointer"
+                        className="h-10 px-8 text-sm font-medium uppercase tracking-wider rounded-lg bg-[#ff6347] text-white hover:bg-[#ff6347]/90 transition-colors cursor-pointer inline-flex items-center justify-center"
                       >
                         Contact Me
                       </button>
-                      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                      <a href="/documents/resume.pdf" download>
                         <ShinyButton className="h-10 px-8 uppercase tracking-wider">
                           Download Resume
                         </ShinyButton>

@@ -30,13 +30,13 @@ import { Button } from "@/components/ui/Button";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "About Me", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Blog", href: "#blog" },
+  { label: "Philosophy", href: "#philosophy" },
   { label: "Contact", href: "#contact" },
 ];
 
-export function Navbar() {
+export function PersonalNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
   const activeSectionRef = useRef("#home");
@@ -72,10 +72,9 @@ export function Navbar() {
   useEffect(() => {
     const sectionNames: Record<string, string> = {
       "#home": "Home",
-      "#about": "About Me",
+      "#experience": "Experience",
       "#projects": "Projects",
-      "#blog": "Blog",
-      "#contact": "Contact",
+      "#philosophy": "Philosophy",
     };
     const sectionName = sectionNames[activeSection] || "Home";
     document.title = `CODEWITHALDOVA - ${sectionName}`;
@@ -141,10 +140,11 @@ export function Navbar() {
           <AnimatedThemeToggler />
 
           <Button
-            onClick={() => scrollToSection("#contact")}
+            asChild
             className="hidden lg:inline-flex uppercase tracking-wider px-10"
+            onClick={() => scrollToSection("#contact")}
           >
-            Contact Me
+            <button>Contact Me</button>
           </Button>
 
           <button
@@ -167,7 +167,7 @@ export function Navbar() {
         <Button
           className="w-full uppercase tracking-wider mt-1"
           size="sm"
-          onClick={() => handleNavClick("#contact")}
+          onClick={() => { scrollToSection("#contact"); setIsOpen(false); }}
         >
           Contact Me
         </Button>
