@@ -28,7 +28,7 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         this.props.fallback || (
-          <div className="flex items-center justify-center w-full h-full bg-black/50 text-white/50">
+          <div className="flex items-center justify-center w-full h-full bg-background/50 text-foreground-muted">
             <p className="text-sm font-mono">Unable to load 3D experience</p>
           </div>
         )

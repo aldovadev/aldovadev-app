@@ -1,14 +1,17 @@
 "use client";
 
+import { useMemo } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { useDarkMode } from "@/hooks";
-import { GridScan } from "@/components/ui/GridScan";
-import Ballpit from "@/components/ui/Ballpit";
 import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 import { ShinyButton } from "@/components/ui/ShinyButton";
 import CountUp from "@/components/ui/CountUp";
 import TrueFocus from "@/components/ui/TrueFocus";
-import ProfileCard from "@/components/ui/ProfileCard";
+
+const GridScan = dynamic(() => import("@/components/ui/GridScan").then((m) => m.GridScan), { ssr: false });
+const Ballpit = dynamic(() => import("@/components/ui/Ballpit"), { ssr: false });
+const ProfileCard = dynamic(() => import("@/components/ui/ProfileCard"), { ssr: false });
 import { scrollToSection } from "@/lib/scroll";
 import { LogoLoop, type LogoItem } from "@/components/ui/LogoLoop";
 import { SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiPostgresql, SiDocker, SiAmazonwebservices, SiGo, SiTailwindcss, SiRedis } from "react-icons/si";
@@ -36,6 +39,23 @@ const techLogos: LogoItem[] = [
 export function Hero() {
   const isDark = useDarkMode();
 
+  const scanColor = useMemo(
+    () => {
+      if (typeof window === "undefined") return "#ffcd9e";
+      return getComputedStyle(document.documentElement).getPropertyValue("--scan-glow").trim() || "#ffcd9e";
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isDark],
+  );
+  const linesColor = useMemo(
+    () => {
+      if (typeof window === "undefined") return "#392e4e";
+      return getComputedStyle(document.documentElement).getPropertyValue("--grid-lines").trim() || "#392e4e";
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isDark],
+  );
+
   return (
     <section
       id="home"
@@ -46,8 +66,8 @@ export function Hero() {
           {isDark ? (
             <div className="w-full h-full opacity-60">
               <GridScan
-                scanColor="#ffcd9e"
-                linesColor="#392e4e"
+                scanColor={scanColor}
+                linesColor={linesColor}
                 lineThickness={1}
                 gridScale={0.1}
                 lineJitter={0.1}
@@ -99,8 +119,8 @@ export function Hero() {
                         sentence="Aldova Guswantri"
                         manualMode={false}
                         blurAmount={4}
-                        borderColor="#ff6347"
-                        glowColor="rgba(255, 99, 71, 0.6)"
+                        borderColor="var(--tomato)"
+                        glowColor="color-mix(in srgb, var(--tomato) 60%, transparent)"
                         animationDuration={0.5}
                         pauseBetweenAnimations={1.5}
                         className="hero-title text-foreground leading-tight!"
@@ -118,7 +138,7 @@ export function Hero() {
                     <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
                       <button
                         onClick={() => scrollToSection("#contact")}
-                        className="h-10 px-8 text-sm font-medium uppercase tracking-wider rounded-lg bg-[#ff6347] text-white hover:bg-[#ff6347]/90 transition-colors cursor-pointer inline-flex items-center justify-center"
+                        className="h-10 px-8 text-sm font-medium uppercase tracking-wider rounded-lg bg-tomato text-white hover:bg-tomato/90 transition-colors cursor-pointer inline-flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tomato"
                       >
                         Contact Me
                       </button>

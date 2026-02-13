@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, ExternalLink, Mail, RotateCcw, FileDown } from "lucide-react";
 import { scrollToSection } from "@/lib/scroll";
 import { experiences } from "@/data";
 import { useDarkMode } from "@/hooks";
-import Cubes from "@/components/ui/Cubes";
+
+const Cubes = dynamic(() => import("@/components/ui/Cubes"), { ssr: false });
 import ShinyText from "@/components/ui/ShinyText";
 import Stepper, { Step } from "@/components/ui/Stepper";
 

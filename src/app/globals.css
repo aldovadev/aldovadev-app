@@ -14,6 +14,11 @@
   --surface: #fafafa;
   --overlay: rgba(0, 0, 0, 0.5);
   --experience-bg: #f8f8f8;
+  --scan-glow: #ffcd9e;
+  --grid-lines: #6b7280;
+  --gradient-deep-1: #1a1a2e;
+  --gradient-deep-2: #16213e;
+  --gradient-deep-3: #0f3460;
 }
 
 .dark {
@@ -27,6 +32,11 @@
   --surface: #050505;
   --overlay: rgba(0, 0, 0, 0.8);
   --experience-bg: #111111;
+  --scan-glow: #ffcd9e;
+  --grid-lines: #392e4e;
+  --gradient-deep-1: #1a1a2e;
+  --gradient-deep-2: #16213e;
+  --gradient-deep-3: #0f3460;
 }
 
 @theme inline {

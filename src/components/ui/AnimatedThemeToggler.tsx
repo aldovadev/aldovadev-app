@@ -34,41 +34,56 @@ export const AnimatedThemeToggler = ({
     return () => observer.disconnect();
   }, []);
 
+  const applyTheme = useCallback(() => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+  }, [isDark]);
+
   const toggleTheme = useCallback(async () => {
     if (!buttonRef.current) return;
 
-    await (document as Document & { startViewTransition: (cb: () => void) => { ready: Promise<void> } }).startViewTransition(() => {
-      flushSync(() => {
-        const newTheme = !isDark;
-        setIsDark(newTheme);
-        document.documentElement.classList.toggle("dark");
-        localStorage.setItem("theme", newTheme ? "dark" : "light");
+    // Graceful fallback for browsers without View Transitions API
+    if (!("startViewTransition" in document)) {
+      applyTheme();
+      return;
+    }
+
+    try {
+      const transition = (document as Document & { startViewTransition: (cb: () => void) => { ready: Promise<void> } }).startViewTransition(() => {
+        flushSync(applyTheme);
       });
-    }).ready;
 
-    const { top, left, width, height } =
-      buttonRef.current.getBoundingClientRect();
-    const x = left + width / 2;
-    const y = top + height / 2;
-    const maxRadius = Math.hypot(
-      Math.max(left, window.innerWidth - left),
-      Math.max(top, window.innerHeight - top),
-    );
+      await transition.ready;
 
-    document.documentElement.animate(
-      {
-        clipPath: [
-          `circle(0px at ${x}px ${y}px)`,
-          `circle(${maxRadius}px at ${x}px ${y}px)`,
-        ],
-      },
-      {
-        duration,
-        easing: "ease-in-out",
-        pseudoElement: "::view-transition-new(root)",
-      },
-    );
-  }, [isDark, duration]);
+      const { top, left, width, height } =
+        buttonRef.current.getBoundingClientRect();
+      const x = left + width / 2;
+      const y = top + height / 2;
+      const maxRadius = Math.hypot(
+        Math.max(left, window.innerWidth - left),
+        Math.max(top, window.innerHeight - top),
+      );
+
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration,
+          easing: "ease-in-out",
+          pseudoElement: "::view-transition-new(root)",
+        },
+      );
+    } catch {
+      // If view transition fails for any reason, apply theme directly
+      applyTheme();
+    }
+  }, [applyTheme, duration]);
 
   return (
     <button

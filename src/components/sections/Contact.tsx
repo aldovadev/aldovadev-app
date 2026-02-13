@@ -7,14 +7,7 @@ import { Button } from "@/components/ui/Button";
 import RotatingText from "@/components/ui/RotatingText";
 import ShinyText from "@/components/ui/ShinyText";
 import SilkBackground from "@/components/ui/SilkBackground";
-
-function XIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
+import { XIcon } from "@/components/ui/XIcon";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -140,57 +133,61 @@ function EmailForm({ onBack }: { onBack: () => void }) {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-mono uppercase tracking-wider text-foreground-muted">
+          <label htmlFor="contact-name" className="text-xs font-mono uppercase tracking-wider text-foreground-muted">
             Name
           </label>
           <input
+            id="contact-name"
             type="text"
             required
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className="rounded-xl border border-border-color bg-card-bg/80 backdrop-blur-sm px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted/50 focus:outline-none focus:border-tomato/60 transition-colors"
+            className="rounded-xl border border-border-color bg-card-bg/80 backdrop-blur-sm px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted/50 focus-visible:outline-none focus-visible:border-tomato/60 transition-colors"
             placeholder="Your name"
           />
         </div>
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-mono uppercase tracking-wider text-foreground-muted">
+          <label htmlFor="contact-email" className="text-xs font-mono uppercase tracking-wider text-foreground-muted">
             Email
           </label>
           <input
+            id="contact-email"
             type="email"
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="rounded-xl border border-border-color bg-card-bg/80 backdrop-blur-sm px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted/50 focus:outline-none focus:border-tomato/60 transition-colors"
+            className="rounded-xl border border-border-color bg-card-bg/80 backdrop-blur-sm px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted/50 focus-visible:outline-none focus-visible:border-tomato/60 transition-colors"
             placeholder="your@email.com"
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="text-xs font-mono uppercase tracking-wider text-foreground-muted">
+        <label htmlFor="contact-subject" className="text-xs font-mono uppercase tracking-wider text-foreground-muted">
           Subject
         </label>
         <input
+          id="contact-subject"
           type="text"
           required
           value={form.subject}
           onChange={(e) => setForm({ ...form, subject: e.target.value })}
-          className="rounded-xl border border-border-color bg-card-bg/80 backdrop-blur-sm px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted/50 focus:outline-none focus:border-tomato/60 transition-colors"
+          className="rounded-xl border border-border-color bg-card-bg/80 backdrop-blur-sm px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted/50 focus-visible:outline-none focus-visible:border-tomato/60 transition-colors"
           placeholder="What's this about?"
         />
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="text-xs font-mono uppercase tracking-wider text-foreground-muted">
+        <label htmlFor="contact-message" className="text-xs font-mono uppercase tracking-wider text-foreground-muted">
           Message
         </label>
         <textarea
+          id="contact-message"
           required
           rows={4}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
-          className="rounded-xl border border-border-color bg-card-bg/80 backdrop-blur-sm px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted/50 focus:outline-none focus:border-tomato/60 transition-colors resize-none"
+          className="rounded-xl border border-border-color bg-card-bg/80 backdrop-blur-sm px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted/50 focus-visible:outline-none focus-visible:border-tomato/60 transition-colors resize-none"
           placeholder="Tell me about your project..."
         />
       </div>
@@ -206,7 +203,7 @@ function EmailForm({ onBack }: { onBack: () => void }) {
         <button
           type="button"
           onClick={onBack}
-          className="flex items-center gap-2 px-5 py-3 rounded-xl border border-border-color text-sm font-medium text-foreground-muted hover:text-foreground hover:border-foreground/20 transition-all cursor-pointer"
+          className="flex items-center gap-2 px-5 py-3 rounded-xl border border-border-color text-sm font-medium text-foreground-muted hover:text-foreground hover:border-foreground/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tomato transition-all cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
           Channels
@@ -214,7 +211,7 @@ function EmailForm({ onBack }: { onBack: () => void }) {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-tomato text-white text-sm font-semibold hover:bg-tomato/90 disabled:opacity-60 transition-all cursor-pointer"
+          className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-tomato text-white text-sm font-semibold hover:bg-tomato/90 disabled:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all cursor-pointer"
         >
           {status === "sending" ? (
             <Loader2 className="w-4 h-4 animate-spin" />

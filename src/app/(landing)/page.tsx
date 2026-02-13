@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import {
   HeroSection,
@@ -19,7 +20,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <Suspense>
+        <HeroSection />
+      </Suspense>
       <ProblemSection />
       <ServicesOverview />
       <SolutionsGrid />
