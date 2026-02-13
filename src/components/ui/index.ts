@@ -47,3 +47,14 @@ export { default as Stepper, Step } from "./Stepper";
 export { default as StickerPeel } from "./StickerPeel";
 export { default as TrueFocus } from "./TrueFocus";
 export { XIcon } from "./XIcon";
+export {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuContent,
+  NavigationMenuTrigger,
+  NavigationMenuLink,
+  NavigationMenuIndicator,
+  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
+} from "./navigation-menu";

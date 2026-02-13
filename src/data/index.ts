@@ -4,3 +4,6 @@ export * from "./experience";
 export * from "./services";
 export * from "./solutions";
 export * from "./landing";
+export * from "./courses";
+export * from "./technologies";
+export * from "./navigation";

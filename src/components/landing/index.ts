@@ -2,6 +2,7 @@ export { HeroSection } from "./HeroSection";
 export { ProblemSection } from "./ProblemSection";
 export { ServicesOverview } from "./ServicesOverview";
 export { SolutionsGrid } from "./SolutionsGrid";
+export { TechStackSection } from "./TechStackSection";
 export { WhyChooseUs } from "./WhyChooseUs";
 export { ClientsSection } from "./ClientsSection";
 export { ProcessSection } from "./ProcessSection";

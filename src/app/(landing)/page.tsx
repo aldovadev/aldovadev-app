@@ -5,6 +5,7 @@ import {
   ProblemSection,
   ServicesOverview,
   SolutionsGrid,
+  TechStackSection,
   WhyChooseUs,
   ClientsSection,
   ProcessSection,
@@ -26,6 +27,7 @@ export default function HomePage() {
       <ProblemSection />
       <ServicesOverview />
       <SolutionsGrid />
+      <TechStackSection />
       <WhyChooseUs />
       <ClientsSection />
       <ProcessSection />

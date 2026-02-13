@@ -17,20 +17,21 @@ export function CTASection() {
           className="text-center max-w-xl mx-auto"
         >
           <h2 className="section-title text-foreground mb-4">
-            Ready to Build Smarter?
+            Let&apos;s Build Your Next Project Together
           </h2>
           <p className="text-foreground-muted leading-relaxed mb-8">
-            Book a free 30-minute discovery call with our engineering team.
-            No obligations — just clarity on your next step.
+            Book a free consultation with our team — no obligations, no hidden
+            fees. Tell us about your idea and we&apos;ll map out the best path
+            to bring it to life.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg">
               <Link href="/contact">
-                Book Consultation <ArrowRight className="w-4 h-4" />
+                Get Free Consultation <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/services">See All Services</Link>
+              <Link href="/services">Explore Our Solutions</Link>
             </Button>
           </div>
         </motion.div>

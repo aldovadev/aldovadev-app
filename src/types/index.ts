@@ -91,3 +91,30 @@ export interface CourseTrack {
   format: "online" | "offline" | "both";
   icon: string;
 }
+
+// ── Tech Stack ──
+export interface TechItem {
+  name: string;
+  icon: string;
+}
+
+export interface TechCategory {
+  id: string;
+  pillar: string;
+  name: string;
+  items: TechItem[];
+}
+
+// ── Navigation ──
+export interface NavDropdownItem {
+  label: string;
+  href: string;
+  description?: string;
+  group?: string;
+}
+
+export interface NavLink {
+  label: string;
+  href: string;
+  children?: NavDropdownItem[];
+}
