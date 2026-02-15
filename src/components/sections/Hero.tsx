@@ -59,7 +59,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative section-screen bg-background overflow-hidden"
+      className="relative section-screen section-hero bg-background overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
         <ErrorBoundary>

@@ -22,11 +22,13 @@ export {
 export { ErrorBoundary } from "./ErrorBoundary";
 export { default as GradientBlinds } from "./GradientBlinds";
 export { GridScan } from "./GridScan";
+export { LoadingScreen } from "./LoadingScreen";
 export { LogoLoop } from "./LogoLoop";
 export type { LogoItem, LogoLoopProps } from "./LogoLoop";
 export { default as MagicBento, ParticleCard, GlobalSpotlight } from "./MagicBento";
 export type { BentoCardProps, BentoProps } from "./MagicBento";
 export { default as ProfileCard } from "./ProfileCard";
+export { RouteThemeDefault } from "./RouteThemeDefault";
 export {
   Navbar,
   NavLogo,

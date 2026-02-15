@@ -111,8 +111,17 @@ body {
 
 @media (min-width: 1024px) {
   .section-screen {
-    height: 100dvh;
+    min-height: 0;
+    max-height: 100dvh;
+    overflow-y: auto;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
+
+  .section-screen.section-hero {
     min-height: 100dvh;
+    max-height: none;
+    overflow-y: hidden;
   }
 }
 
@@ -137,4 +146,195 @@ body {
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
+}
+
+/* ── Loading Screen Animations ── */
+
+.loading-progress-bar {
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, var(--tomato), transparent);
+  animation: loading-sweep 1.8s ease-in-out infinite;
+}
+
+.loading-glow {
+  animation: loading-glow-pulse 3s ease-in-out infinite;
+}
+
+.loading-morph {
+  animation: loading-morph 4s ease-in-out infinite;
+}
+
+.loading-morph-reverse {
+  animation: loading-morph 4s ease-in-out infinite reverse;
+}
+
+.loading-pulse-dot {
+  animation: loading-dot-pulse 2s ease-in-out infinite;
+}
+
+.loading-orbit {
+  animation: loading-orbit-spin 3s linear infinite;
+}
+
+.loading-orbit-1 {
+  animation-duration: 3s;
+  transform-origin: center;
+}
+
+.loading-orbit-1>div {
+  transform: translate(-50%, -50%) translateX(48px);
+}
+
+.loading-orbit-2 {
+  animation-duration: 4.5s;
+  animation-direction: reverse;
+}
+
+.loading-orbit-2>div {
+  transform: translate(-50%, -50%) translateX(42px);
+}
+
+.loading-orbit-3 {
+  animation-duration: 6s;
+}
+
+.loading-orbit-3>div {
+  transform: translate(-50%, -50%) translateX(54px);
+}
+
+.loading-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 2px;
+  background: var(--tomato);
+  animation: loading-blink 1s step-end infinite;
+}
+
+.loading-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tomato);
+  opacity: 0.3;
+  animation: loading-dot-bounce 1.4s ease-in-out infinite;
+}
+
+.loading-fade-up {
+  animation: loading-fade-up 0.6s ease-out both;
+}
+
+/* Keyframes */
+
+@keyframes loading-sweep {
+  0% {
+    transform: translateX(-150%);
+  }
+
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+@keyframes loading-glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes loading-morph {
+
+  0%,
+  100% {
+    border-radius: 16px;
+    transform: rotate(0deg);
+  }
+
+  25% {
+    border-radius: 50%;
+    transform: rotate(90deg);
+  }
+
+  50% {
+    border-radius: 8px;
+    transform: rotate(180deg);
+  }
+
+  75% {
+    border-radius: 50%;
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes loading-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-dot-pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.8);
+    opacity: 1;
+  }
+}
+
+@keyframes loading-blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes loading-dot-bounce {
+
+  0%,
+  80%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes loading-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

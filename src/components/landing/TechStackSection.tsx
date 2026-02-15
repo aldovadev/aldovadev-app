@@ -9,18 +9,24 @@ const pillarColors: Record<string, string> = {
   "Infrastructure & Automation": "text-tomato",
 };
 
-function TechIcon({ name, icon }: { name: string; icon: string }) {
+function TechIcon({ name, icon, color, iconUrl }: { name: string; icon: string; color?: string; iconUrl?: string }) {
+  const src = iconUrl
+    ? iconUrl
+    : color
+      ? `https://cdn.simpleicons.org/${icon}/${color}`
+      : `https://cdn.simpleicons.org/${icon}`;
+
   return (
     <div className="flex flex-col items-center gap-1.5 min-w-14">
       <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-alt p-1.5">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`https://cdn.simpleicons.org/${icon}`}
+          src={src}
           alt={name}
           width={24}
           height={24}
           loading="lazy"
-          className="w-6 h-6 dark:invert-[.85] dark:brightness-200 object-contain"
+          className="w-6 h-6 object-contain"
         />
       </div>
       <span className="text-[10px] text-foreground-muted text-center leading-tight">
@@ -94,6 +100,8 @@ export function TechStackSection() {
                           key={item.icon}
                           name={item.name}
                           icon={item.icon}
+                          color={item.color}
+                          iconUrl={item.iconUrl}
                         />
                       ))}
                     </div>

@@ -88,12 +88,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                var theme = localStorage.getItem('theme');
-                if (theme === 'light') {
-                  document.documentElement.classList.remove('dark');
-                } else if (theme === 'dark') {
-                  document.documentElement.classList.add('dark');
-                } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                // Route-based theme defaults — always applied on page load
+                // /aldovadev → dark, landing pages → light
+                if (location.pathname.indexOf('/aldovadev') === 0) {
                   document.documentElement.classList.add('dark');
                 } else {
                   document.documentElement.classList.remove('dark');

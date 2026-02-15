@@ -96,6 +96,9 @@ export interface CourseTrack {
 export interface TechItem {
   name: string;
   icon: string;
+  color?: string;
+  /** Full URL override – used when the icon is unavailable on Simple Icons */
+  iconUrl?: string;
 }
 
 export interface TechCategory {

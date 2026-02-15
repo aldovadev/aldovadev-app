@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 import { PersonalNavbar } from "@/components/layout";
+import { RouteThemeDefault } from "@/components/ui";
 import {
   Hero,
   Experience,
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 export default function AldovadevPage() {
   return (
     <>
+      <RouteThemeDefault dark />
       <PersonalNavbar />
       <main className="relative h-dvh overflow-y-auto scroll-smooth bg-background">
         <Suspense>
